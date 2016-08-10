@@ -1,5 +1,14 @@
 # coding=utf-8
 
+README = """
+# PROJECT NAME
+
+## Requirements
+
+## How to Contribute
+
+"""
+
 LICENSE = """
 WHEN CHOSEN CLARA LICENSE WILL GO HERE
 """

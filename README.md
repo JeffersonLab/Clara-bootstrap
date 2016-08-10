@@ -1,5 +1,7 @@
 # Clara Bootstrap Scripts for python and Java
 
+A collection of scripts to help the CLARA services developers to only worry about programming the algorithms and to not
+care about project structures.
 
 ## Requirements
 

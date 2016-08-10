@@ -50,9 +50,8 @@ if __name__ == "__main__":
           url='https://claraweb.jlab.org',
           license=LICENSE,
           long_description=README,
-          install_requires=['clara==2.0'],
           test_suite="tests",
-          tests_require=['pytest', 'clara>=2.0'],
+          tests_require=['pytest'],
           cmdclass={
               'test': ClaraTest,
               'clean': ClaraClean,

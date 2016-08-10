@@ -1,3 +1,10 @@
+# coding=utf-8
+
+LICENSE = """
+WHEN CHOSEN CLARA LICENSE WILL GO HERE
+"""
+
+GITIGNORE = """
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -93,3 +100,5 @@ ENV/
 
 # Others
 *.root
+
+"""

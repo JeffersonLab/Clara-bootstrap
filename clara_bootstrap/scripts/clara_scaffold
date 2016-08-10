@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# author royarzun
+# date 10.8.16
+
+if [ "$1" = "-h" -o "$1" = "-help" ]
+then
+    echo "Clara Bootstrap v1.0 - Create new CLARA Project"
+    echo "usage: clara_scaffold <LANGUAGE> <PROJECT_NAME>"
+else
+    echo "HERE GOES THE SCAFFOLD CODE..."
+fi

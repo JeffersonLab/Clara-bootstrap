@@ -12,8 +12,12 @@ class TestPythonProjectGenerator(unittest.TestCase):
         project_name = "TEST_PROJECT"
         create_python_service(project_name)
         self.assertTrue(os.path.exists(project_name))
-        self.assertTrue(os.path.isfile(project_name + "/YourService.py"))
-        os.remove(project_name + "/YourService.py")
+        self.assertTrue(os.path.isfile(project_name + "/"
+                                       + project_name + "/"
+                                       + "/TEST_PROJECTService.py"))
+        os.remove(project_name + "/"
+                  + project_name + "/"
+                  + "/TEST_PROJECTService.py")
 
 if __name__ == "__main__":
     unittest.main()

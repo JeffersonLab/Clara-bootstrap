@@ -10,10 +10,14 @@ env = Environment(loader=PackageLoader('clara_bootstrap',
 
 
 def create_python_service(project_name):
-    create_folder(project_name)
+    create_folder(project_name + "/" + project_name)
+    service_name = project_name + "Service"
+    service_name_py = service_name + ".py"
     template = env.get_template('python.txt')
-    file = open(project_name + "/YourService.py", "w")
-    file.write(template.render(service_name="YourClassName"))
+    file = open(project_name + "/"
+                + project_name + "/"
+                + service_name_py, "w")
+    file.write(template.render(service_name=service_name))
     file.close()
 
 
@@ -32,6 +36,12 @@ def create_root_dir_extras(project_name):
     p_gitignore.close()
 
 
-def create_project(project_name="bla"):
-    create_python_service(project_name)
-    create_root_dir_extras(project_name)
+def create_python_project(project_name):
+
+    if project_name:
+        create_python_service(project_name)
+        create_root_dir_extras(project_name)
+        print "Project created."
+
+    else:
+        raise Exception("Project name is required for scaffolding...")

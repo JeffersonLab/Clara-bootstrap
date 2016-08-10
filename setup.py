@@ -59,5 +59,5 @@ if __name__ == "__main__":
           packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*",
                                           "tests", "examples", "examples.*"]),
           package_dir={"clara_bootstrap": "clara_bootstrap"},
-          scripts=['clara_bootstrap/scripts/clara_scaffold']
+          scripts=['clara_bootstrap/scripts/clara']
           )

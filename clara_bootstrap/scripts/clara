@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ "$1" = "-h" -o "$1" = "-help" ]; then
+    echo "Clara Bootstrap v1.0 - Create new CLARA Project"
+    echo "usage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
+fi
+
+option=$1
+
+if [ "$option" = "scaffold" ]; then
+    language=$2
+    proj_name=$3
+    if [ "$language" = "python" ]; then
+        python -c "from clara_bootstrap.src.generator.PythonProjectGenerator import create_python_project; create_python_project(\"$proj_name\")"
+    fi
+fi

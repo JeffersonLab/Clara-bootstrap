@@ -1,0 +1,39 @@
+# coding=utf-8
+
+from clara.engine.Engine import Engine
+
+
+class {{service_name}}(Engine):
+
+    def configure(self, engine_data):
+        pass
+
+    def execute(self, engine_data):
+        pass
+
+    def execute_group(self, inputs):
+        pass
+
+    def get_input_data_types(self):
+        pass
+
+    def get_output_data_types(self):
+        pass
+
+    def get_states(self):
+        pass
+
+    def get_description(self):
+        pass
+
+    def get_version(self):
+        pass
+
+    def get_author(self):
+        pass
+
+    def reset(self):
+        pass
+
+    def destroy(self):
+        pass

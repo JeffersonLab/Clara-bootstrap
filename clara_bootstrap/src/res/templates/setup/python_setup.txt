@@ -2,7 +2,7 @@
 # coding=utf-8
 
 import os
-import clara_bootstrap
+import {{project_name}}
 from distutils.core import setup, Command
 from setuptools.command.test import test as TestCommand
 from setuptools import find_packages
@@ -32,8 +32,8 @@ class ClaraClean(Command):
     def run(self):
         os.system('rm -vrf ./.cache ./.eggs ./build ./dist')
         os.system('rm -vrf ./*.tgz ./*.egg-info')
-        os.system('find . -name "*.pyc" -exec rm -vrf {} \;')
-        os.system('find . -name "__pycache__" -exec rm -rf {} \;')
+        os.system('find . -name '*.pyc' -exec rm -vrf {} \;')
+        os.system('find . -name '__pycache__' -exec rm -rf {} \;')
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme_file:
     README = readme_file.read()
@@ -41,23 +41,22 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme_file:
 with open(os.path.join(os.path.dirname(__file__), 'LICENSE')) as license_file:
     LICENSE = license_file.read()
 
-if __name__ == "__main__":
-    setup(name='clara_bootstrap',
-          version=clara_bootstrap.__version__,
-          description='Clara bootstrap scripts',
-          author='Ricardo Oyarzun',
-          author_email='oyarzun@jlab.org',
-          url='https://claraweb.jlab.org',
+if __name__ == '__main__':
+    setup(name='{{project_name}}',
+          version={{project_name}}.__version__,
+          description='SOME_DESCRIPTION HERE',
+          author='{{author}}',
+          author_email='YOUR_EMAIL',
+          url='YOUR_WEBSITE',
           license=LICENSE,
           long_description=README,
-          test_suite="tests",
+          test_suite='tests',
           tests_require=['pytest'],
           cmdclass={
               'test': ClaraTest,
               'clean': ClaraClean,
           },
-          packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*",
-                                          "tests", "examples", "examples.*"]),
-          package_dir={"clara_bootstrap": "clara_bootstrap"},
-          scripts=['clara_bootstrap/scripts/clara']
+          packages=find_packages(exclude=['*.tests', '*.tests.*', 'tests.*',
+                                          'tests', 'examples', 'examples.*']),
+          package_dir={'{{project_name}}': '{{project_name}}'},
           )

@@ -6,7 +6,8 @@ care about project structures.
 ## Requirements
 
 * Clara for Python >= 2.0
-* Clara for Java >=3.0
+* Clara for Java >=4.3
+* Gradle
 
 ## Installation
 

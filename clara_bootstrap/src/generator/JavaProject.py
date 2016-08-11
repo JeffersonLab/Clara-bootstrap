@@ -1,5 +1,7 @@
 # coding=utf-8
 
+import subprocess
+
 from clara_bootstrap.src.utils.SystemUtils import *
 from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA, README
 
@@ -8,7 +10,7 @@ GRADLE_RES_FOLDER = "/src/main/res"
 GRADLE_TEST_FOLDER = "/src/test/java"
 
 
-def create_java_service(project_name):
+def _create_java_service(project_name):
     package_name = project_name + GRADLE_SRC_FOLDER + "/services/"
     service_name = package_name + project_name + "Service.java"
 
@@ -18,7 +20,14 @@ def create_java_service(project_name):
                               project_name=project_name)
 
 
-def create_root_dir(project_name):
+def _create_java_setup(project_name):
+    subprocess.call(["gradle", "wrapper", "--project-dir", project_name])
+    create_file_from_template(project_name + "/build.gradle",
+                              "setup/java_setup.txt",
+                              project_name=project_name)
+
+
+def _create_root_dir(project_name):
     package_name = project_name + GRADLE_SRC_FOLDER + "/services/"
     test_folder = project_name + GRADLE_TEST_FOLDER
     res_folder = project_name + GRADLE_RES_FOLDER
@@ -38,11 +47,11 @@ def create_root_dir(project_name):
 def create_java_project(project_name):
 
     if project_name:
-        print "Creating the CLARA project skeleton..."
-        create_root_dir(project_name)
+        print "Creating the CLARA project skeleton...\n"
+        _create_root_dir(project_name)
+        _create_java_setup(project_name)
         # create_java_service(project_name)
-        # create_java_setup(project_name)
-        print "Project created."
+        print "\nProject created."
 
     else:
         raise Exception("Project name is required for scaffolding...")

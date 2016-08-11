@@ -18,3 +18,9 @@ def make_executable(path):
     mode = os.stat(path).st_mode
     mode |= (mode & 0o444) >> 2    # copy R bits to X
     os.chmod(path, mode)
+    print "executable:\t" + path
+
+
+def verify_file_creation(filename):
+    if os.path.isfile(filename):
+        print "created:\t" + filename

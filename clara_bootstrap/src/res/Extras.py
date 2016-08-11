@@ -111,3 +111,12 @@ ENV/
 *.root
 
 """
+
+GITIGNORE_JAVA = """
+.checkstyle
+.gradle
+.project
+.idea
+.settings
+/build
+"""

@@ -2,16 +2,12 @@
 
 from unittest import TestCase
 from clara.engine.EngineData import EngineData
-from clara.engine.EngineDataType import Mimetype
 
 
-
-class {{project_name}}Service(TestCase):
+class Test{{project_name}}Service(TestCase):
 
     def setUp(self):
         self.engine_data = EngineData()
-        self.engine_data.set_data(Mimetype.STRING, json.dumps(json_data))
 
     def test_execute(self):
-        histo_service = {{project_name}}Service()
-        self.assertIsInstance(histo_service.execute(self.engine_data), TH2F)
+        pass

@@ -18,10 +18,10 @@ class TestPythonProjectGenerator(unittest.TestCase):
     def test_create_python_service(self):
         create_python_service(project_name)
         self.assertTrue(os.path.exists(project_name))
-        self.assertTrue(os.path.isfile(package_dir
-                                       + "/__init__.py"))
-        self.assertTrue(os.path.isfile(package_dir
-                                       + "/TEST_PROJECTService.py"))
+        self.assertTrue(os.path.isfile(package_dir +
+                                       "/__init__.py"))
+        self.assertTrue(os.path.isfile(package_dir +
+                                       "/TEST_PROJECTService.py"))
 
     def test_create_python_project(self):
         create_python_project(project_name)
@@ -29,6 +29,8 @@ class TestPythonProjectGenerator(unittest.TestCase):
         self.assertTrue(os.path.isfile(project_name + "/LICENSE"))
         self.assertTrue(os.path.isfile(project_name + "/.gitignore"))
         self.assertTrue(os.path.isfile(project_name + "/setup.py"))
+        self.assertTrue(os.path.isfile(project_name +
+                                       "/tests/test_TEST_PROJECTService.py"))
 
 
 if __name__ == "__main__":

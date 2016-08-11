@@ -15,7 +15,7 @@ def _test_folder(project_name):
 def create_init_file(path, template=None):
     init_file_path = path + "__init__.py"
     if template:
-        create_file_from_template(init_file_path, template)
+        create_file_from_template(init_file_path, template, )
     else:
         create_file_from_string(init_file_path)
 
@@ -40,7 +40,9 @@ def create_python_setup(project_name):
     setup_file_path = project_name + "/setup.py"
 
     # Create setup.py
-    create_file_from_template(setup_file_path, "setup/python_setup.txt")
+    create_file_from_template(setup_file_path,
+                              "setup/python_setup.txt",
+                              project_name=project_name)
     make_executable(setup_file_path)
 
 
@@ -51,7 +53,8 @@ def create_root_dir(project_name):
 
     # Create __init__.py
     create_file_from_template(_package_folder(project_name) +
-                              "__init__.py", "services/python_init.txt")
+                              "__init__.py", "services/python_init.txt",
+                              author=get_username())
     create_file_from_string(_test_folder(project_name) + "__init__.py")
 
     # README.md

@@ -9,12 +9,18 @@ from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA,\
 
 
 def _create_java_service(project_name):
-    package_name = project_name + GRADLE_SRC_FOLDER + "/services/"
+    package_name = project_name + GRADLE_SRC_FOLDER
+    test_package_name = project_name + GRADLE_TEST_FOLDER
     service_name = package_name + project_name + "Service.java"
+    service_name_test = test_package_name + project_name + "ServiceTest.java"
 
     # Create the service
     create_file_from_template(service_name,
                               TEMPLATE_JAVA_SERVICE,
+                              project_name=project_name)
+
+    create_file_from_template(service_name_test,
+                              TEMPLATE_JAVA_TEST,
                               project_name=project_name)
 
 
@@ -26,7 +32,7 @@ def _create_java_setup(project_name):
 
 
 def _create_root_dir(project_name):
-    package_name = project_name + GRADLE_SRC_FOLDER + "/services/"
+    package_name = project_name + GRADLE_SRC_FOLDER
     test_folder = project_name + GRADLE_TEST_FOLDER
     res_folder = project_name + GRADLE_RES_FOLDER
 
@@ -48,7 +54,7 @@ def create_java_project(project_name):
         print "Creating the CLARA project skeleton...\n"
         _create_root_dir(project_name)
         _create_java_setup(project_name)
-        # create_java_service(project_name)
+        _create_java_service(project_name)
         print "\nProject created."
 
     else:

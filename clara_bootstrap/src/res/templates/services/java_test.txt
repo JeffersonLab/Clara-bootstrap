@@ -1,0 +1,15 @@
+package services;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class {{project_name}}ServiceTest {
+
+    @Before
+    public void setUp() {
+    }
+
+    @Test
+    public void testExecute() {
+    }
+}

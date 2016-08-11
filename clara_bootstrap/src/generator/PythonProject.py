@@ -12,7 +12,7 @@ def _test_folder(project_name):
     return project_name + "/tests/"
 
 
-def create_python_service(project_name):
+def _create_python_service(project_name):
     service_name = project_name + "Service"
     service_file_path = _package_folder(project_name) + service_name + ".py"
     test_file_path = _test_folder(project_name) + "test_" + service_name + ".py"
@@ -28,7 +28,7 @@ def create_python_service(project_name):
                               project_name=project_name)
 
 
-def create_python_setup(project_name):
+def _create_python_setup(project_name):
     setup_file_path = project_name + "/setup.py"
 
     # Create setup.py
@@ -38,7 +38,7 @@ def create_python_setup(project_name):
     make_executable(setup_file_path)
 
 
-def create_root_dir(project_name):
+def _create_root_dir(project_name):
     # Create project folder
     create_folder(_package_folder(project_name))
     create_folder(_test_folder(project_name))
@@ -60,11 +60,11 @@ def create_root_dir(project_name):
 def create_python_project(project_name):
 
     if project_name:
-        print "Creating the CLARA project skeleton..."
-        create_root_dir(project_name)
-        create_python_setup(project_name)
-        create_python_service(project_name)
-        print "Project created."
+        print "Creating the CLARA project skeleton...\n"
+        _create_root_dir(project_name)
+        _create_python_setup(project_name)
+        _create_python_service(project_name)
+        print "\nProject created."
 
     else:
         raise Exception("Project name is required for scaffolding...")

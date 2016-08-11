@@ -32,8 +32,8 @@ class ClaraClean(Command):
     def run(self):
         os.system('rm -vrf ./.cache ./.eggs ./build ./dist')
         os.system('rm -vrf ./*.tgz ./*.egg-info')
-        os.system('find . -name '*.pyc' -exec rm -vrf {} \;')
-        os.system('find . -name '__pycache__' -exec rm -rf {} \;')
+        os.system('find . -name \'*.pyc\' -exec rm -vrf {} \;')
+        os.system('find . -name \'__pycache__\' -exec rm -rf {} \;')
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme_file:
     README = readme_file.read()

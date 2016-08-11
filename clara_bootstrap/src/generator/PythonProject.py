@@ -12,14 +12,6 @@ def _test_folder(project_name):
     return project_name + "/tests/"
 
 
-def create_init_file(path, template=None):
-    init_file_path = path + "__init__.py"
-    if template:
-        create_file_from_template(init_file_path, template, )
-    else:
-        create_file_from_string(init_file_path)
-
-
 def create_python_service(project_name):
     service_name = project_name + "Service"
     service_file_path = _package_folder(project_name) + service_name + ".py"

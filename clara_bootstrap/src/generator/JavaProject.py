@@ -3,7 +3,7 @@
 from jinja import Environment, PackageLoader
 
 from clara_bootstrap.src.utils.SystemUtils import create_folder
-from clara_bootstrap.src.res.Extras import LICENSE, GITIGNORE_JAVA, README
+from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA, README
 
 GRADLE_SRC_FOLDER = "/src/main/java"
 GRADLE_RES_FOLDER = "/src/main/res"

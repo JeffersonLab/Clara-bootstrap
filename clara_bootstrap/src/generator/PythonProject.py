@@ -3,7 +3,7 @@
 from jinja import Environment, PackageLoader
 
 from clara_bootstrap.src.utils.SystemUtils import *
-from clara_bootstrap.src.res.Extras import LICENSE, GITIGNORE, README
+from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE, README
 
 env = Environment(loader=PackageLoader('clara_bootstrap',
                                        'src/res/templates'))

@@ -2,6 +2,7 @@
 
 from clara_bootstrap.src.utils.SystemUtils import *
 from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE, README
+from clara_bootstrap.src.res.FileNameConstants import *
 
 
 def _package_folder(project_name):
@@ -19,12 +20,12 @@ def _create_python_service(project_name):
 
     # Create the service
     create_file_from_template(service_file_path,
-                              "services/python.txt",
+                              TEMPLATE_PYTHON_SERVICE,
                               service_name=service_name)
 
     # Create tests
     create_file_from_template(test_file_path,
-                              "services/python_test.txt",
+                              TEMPLATE_PYTHON_TEST,
                               project_name=project_name)
 
 
@@ -33,7 +34,7 @@ def _create_python_setup(project_name):
 
     # Create setup.py
     create_file_from_template(setup_file_path,
-                              "setup/python_setup.txt",
+                              TEMPLATE_PYTHON_SETUP,
                               project_name=project_name)
     make_executable(setup_file_path)
 
@@ -44,17 +45,17 @@ def _create_root_dir(project_name):
     create_folder(_test_folder(project_name))
 
     # Create __init__.py
-    create_file_from_template(_package_folder(project_name) +
-                              "__init__.py", "services/python_init.txt",
+    create_file_from_template(_package_folder(project_name) + "__init__.py",
+                              TEMPLATE_PYTHON_INIT,
                               author=get_username())
     create_file_from_string(_test_folder(project_name) + "__init__.py")
 
     # README.md
-    create_file_from_string(project_name + "/README.md", README)
+    create_file_from_string(project_name + README_FILE, README)
     # LICENSE
-    create_file_from_string(project_name + "/LICENSE", LICENSE)
+    create_file_from_string(project_name + LICENSE_FILE, LICENSE)
     # .gitignore
-    create_file_from_string(project_name + "/.gitignore", GITIGNORE)
+    create_file_from_string(project_name + GITIGNORE_FILE, GITIGNORE)
 
 
 def create_python_project(project_name):

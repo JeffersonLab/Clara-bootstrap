@@ -3,11 +3,9 @@
 import subprocess
 
 from clara_bootstrap.src.utils.SystemUtils import *
-from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA, README
-
-GRADLE_SRC_FOLDER = "/src/main/java"
-GRADLE_RES_FOLDER = "/src/main/res"
-GRADLE_TEST_FOLDER = "/src/test/java"
+from clara_bootstrap.src.res.FileNameConstants import *
+from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA,\
+    README
 
 
 def _create_java_service(project_name):
@@ -16,14 +14,14 @@ def _create_java_service(project_name):
 
     # Create the service
     create_file_from_template(service_name,
-                              "services/java.txt",
+                              TEMPLATE_JAVA_SERVICE,
                               project_name=project_name)
 
 
 def _create_java_setup(project_name):
     subprocess.call(["gradle", "wrapper", "--project-dir", project_name])
-    create_file_from_template(project_name + "/build.gradle",
-                              "setup/java_setup.txt",
+    create_file_from_template(project_name + GRADLE_FILE,
+                              TEMPLATE_JAVA_SETUP,
                               project_name=project_name)
 
 
@@ -37,11 +35,11 @@ def _create_root_dir(project_name):
     create_folder(test_folder)
     create_folder(res_folder)
     # README.md
-    create_file_from_string(project_name + "/README.md", README)
+    create_file_from_string(project_name + README_FILE, README)
     # LICENSE
-    create_file_from_string(project_name + "/LICENSE", LICENSE)
+    create_file_from_string(project_name + LICENSE_FILE, LICENSE)
     # .gitignore
-    create_file_from_string(project_name + "/.gitignore", GITIGNORE_JAVA)
+    create_file_from_string(project_name + GITIGNORE_FILE, GITIGNORE_JAVA)
 
 
 def create_java_project(project_name):

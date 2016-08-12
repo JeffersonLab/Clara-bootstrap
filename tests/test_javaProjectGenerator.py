@@ -19,6 +19,7 @@ class TestJavaProjectGenerator(unittest.TestCase):
 
     def test_create_java_project(self):
         create_java_project(project_name)
+        self.assertTrue(os.path.isdir(project_name + "/config"))
         self.assertTrue(os.path.isfile(project_name + "/build.gradle"))
         self.assertTrue(os.path.isfile(project_name + "/gradlew"))
         self.assertTrue(os.path.isfile(project_name + "/gradlew.bat"))

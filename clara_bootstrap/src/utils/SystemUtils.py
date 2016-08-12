@@ -2,12 +2,21 @@
 
 import getpass
 import os
+import shutil
 
 from jinja import Environment, PackageLoader
 
 
-env = Environment(loader=PackageLoader("clara_bootstrap",
-                                       "src/res/templates"))
+env = Environment(loader=PackageLoader("clara_bootstrap", "src/res/templates"))
+
+
+def copy_folder(origin_path, destination_path):
+    # Check if destination folder exists
+    dir = os.path.dirname(__file__)
+    origin_path = os.path.join(dir, origin_path)
+    if not os.path.isdir(destination_path):
+        shutil.copytree(origin_path, destination_path)
+    _verify_file_creation(destination_path)
 
 
 def create_folder(folder_name):
@@ -31,7 +40,7 @@ def create_file_from_string(file_path, content_string=""):
     file_object = open(file_path, "w")
     file_object.write(content_string)
     file_object.close()
-    verify_file_creation(file_object.name)
+    _verify_file_creation(file_object.name)
 
 
 def create_file_from_template(file_path, template, **kwargs):
@@ -39,9 +48,11 @@ def create_file_from_template(file_path, template, **kwargs):
     service_template = env.get_template(template)
     file_object.write(service_template.render(kwargs))
     file_object.close()
-    verify_file_creation(file_object.name)
+    _verify_file_creation(file_object.name)
 
 
-def verify_file_creation(filename):
-    if os.path.isfile(filename):
+def _verify_file_creation(filename):
+    if os.path.isfile(filename) or os.path.isdir(filename):
         print "created:\t" + filename
+    else:
+        raise IOError("Could not create file")

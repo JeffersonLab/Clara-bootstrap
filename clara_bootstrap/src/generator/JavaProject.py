@@ -29,6 +29,7 @@ def _create_java_setup(project_name):
     create_file_from_template(project_name + GRADLE_FILE,
                               TEMPLATE_JAVA_SETUP,
                               project_name=project_name)
+    copy_folder(JAVA_CONFIG_FOLDER, project_name + "/config")
 
 
 def _create_root_dir(project_name):

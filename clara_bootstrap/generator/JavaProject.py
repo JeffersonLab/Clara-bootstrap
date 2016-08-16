@@ -2,10 +2,10 @@
 
 import subprocess
 
-from clara_bootstrap.src.utils.SystemUtils import *
-from clara_bootstrap.src.res.FileNameConstants import *
-from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE_JAVA,\
+from clara_bootstrap.res.FileNameConstants import *
+from clara_bootstrap.res.BaseConstants import LICENSE, GITIGNORE_JAVA,\
     README
+from clara_bootstrap.utils.SystemUtils import *
 
 
 def _create_java_service(project_name):

@@ -4,7 +4,7 @@ import os
 import shutil
 import unittest
 
-from clara_bootstrap.src.generator.JavaProject import create_java_project
+from clara_bootstrap.generator.JavaProject import create_java_project
 
 project_name = "TEST_PROJECT"
 src_file_path = "TEST_PROJECT/src/main/java/services/TEST_PROJECTService.java"

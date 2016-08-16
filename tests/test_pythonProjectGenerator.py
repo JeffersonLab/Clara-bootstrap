@@ -4,7 +4,7 @@ import os
 import shutil
 import unittest
 
-from clara_bootstrap.src.generator.PythonProject import *
+from clara_bootstrap.generator.PythonProject import create_python_project
 
 project_name = "TEST_PROJECT"
 src_file_path = "TEST_PROJECT/TEST_PROJECT/"

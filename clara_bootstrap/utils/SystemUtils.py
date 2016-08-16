@@ -6,9 +6,9 @@ import shutil
 
 from jinja import Environment, PackageLoader
 
-from clara_bootstrap.src.utils.decorators import verify_creation
+from clara_bootstrap.utils.decorators import verify_creation
 
-env = Environment(loader=PackageLoader("clara_bootstrap", "src/res/templates"))
+env = Environment(loader=PackageLoader("clara_bootstrap", "res/templates"))
 
 
 def copy_folder(origin_path, destination_path):

@@ -1,8 +1,8 @@
 # coding=utf-8
 
-from clara_bootstrap.src.utils.SystemUtils import *
-from clara_bootstrap.src.res.BaseConstants import LICENSE, GITIGNORE, README
-from clara_bootstrap.src.res.FileNameConstants import *
+from clara_bootstrap.res.FileNameConstants import *
+from clara_bootstrap.res.BaseConstants import LICENSE, GITIGNORE, README
+from clara_bootstrap.utils.SystemUtils import *
 
 
 def _package_folder(project_name):

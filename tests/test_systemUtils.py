@@ -3,7 +3,7 @@
 import os
 import unittest
 
-from clara_bootstrap.src.utils.SystemUtils import *
+from clara_bootstrap.utils.SystemUtils import create_folder, get_username
 
 FOLDER_NAME = "TEST_FOLDER"
 

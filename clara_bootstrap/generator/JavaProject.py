@@ -25,7 +25,9 @@ def _create_java_service(project_name):
 
 
 def _create_java_setup(project_name):
-    subprocess.call(["gradle", "wrapper", "--project-dir", project_name])
+    FNULL = open(os.devnull, 'w')
+    subprocess.call(["gradle", "wrapper", "--project-dir", project_name],
+                    stdout=FNULL, stderr=subprocess.STDOUT)
     create_file_from_template(project_name + GRADLE_FILE,
                               TEMPLATE_JAVA_SETUP,
                               project_name=project_name)
@@ -52,7 +54,7 @@ def _create_root_dir(project_name):
 def create_java_project(project_name):
 
     if project_name:
-        print "Creating the CLARA project skeleton...\n"
+        print "Creating the CLARA Java project skeleton...\n"
         _create_root_dir(project_name)
         _create_java_setup(project_name)
         _create_java_service(project_name)

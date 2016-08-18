@@ -41,6 +41,18 @@ in the JAVA case run:
 $ clara scaffold java PROJECT_NAME
 ```
 
+### Clara install
+
+To install clara and all of its dependencies using clara_bootstrap, simply run:
+
+```sh
+$ clara setup python
+```
+
+this will take care of downloading the latest stable version of clara python into
+your system.
+
+
 ## How to Contribute
 
 * Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug.

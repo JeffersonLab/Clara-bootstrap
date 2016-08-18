@@ -1,3 +1,4 @@
 # coding=utf-8
 
 Jinja==1.2
+gitpython

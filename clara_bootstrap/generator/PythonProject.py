@@ -61,7 +61,7 @@ def _create_root_dir(project_name):
 def create_python_project(project_name):
 
     if project_name:
-        print "Creating the CLARA project skeleton...\n"
+        print "Creating the CLARA Python project skeleton...\n"
         _create_root_dir(project_name)
         _create_python_setup(project_name)
         _create_python_service(project_name)

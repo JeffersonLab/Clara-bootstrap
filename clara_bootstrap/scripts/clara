@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
-if [ "$1" = "-h" -o "$1" = "-help" ]; then
+function print_help(){
     echo "Clara Bootstrap v1.0"
-    echo "usage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
-    echo "usage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPO]"
+    echo -e "\tusage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
+    echo -e "\tusage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPO]"
+}
+
+if [ -z "$1" ]; then
+    print_help
+fi
+
+if [ "$1" = "-h" -o "$1" = "-help" ]; then
+    print_help
 fi
 
 option=$1
@@ -15,6 +23,8 @@ if [ "$option" = "scaffold" ]; then
         python -c "from clara_bootstrap.generator.PythonProject import create_python_project; create_python_project(\"$proj_name\")"
     elif [ "$language" = "java" ]; then
         python -c "from clara_bootstrap.generator.JavaProject import create_java_project; create_java_project(\"$proj_name\")"
+    else
+        print_help
     fi
 elif [ "$option" = "setup" ]; then
     language=$2
@@ -27,4 +37,6 @@ elif [ "$option" = "setup" ]; then
     else
         echo "Not supported language for bootstrap setup..."
     fi
+else
+    print_help
 fi

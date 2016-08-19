@@ -1,17 +1,21 @@
 # Clara Bootstrap Scripts for python and Java
 
-A collection of scripts to help the CLARA services developers to only worry about programming the algorithms and to not
-care about project structures.
+A collection of scripts to help the CLARA services developers to only worry about programming the algorithms and to not care about project structures, dependencies or go through installation processes.
 
-## Requirements
+## System Requirements
 
-* Clara for Python >= 2.0
-* Clara for Java >=4.3
-* Gradle
+* Gradle (For java scaffolding)
+* Python pip
 
 ## Installation
 
-To install the services just run the setup.py script with the install argument
+Install the scripts requirements
+
+```sh
+$ pip install -r requirements.txt
+```
+
+And then simply run in the terminal the **setup.py** script with the install argument
 
 ```sh
 $ ./setup.py install

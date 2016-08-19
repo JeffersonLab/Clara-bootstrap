@@ -3,7 +3,7 @@
 if [ "$1" = "-h" -o "$1" = "-help" ]; then
     echo "Clara Bootstrap v1.0"
     echo "usage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
-    echo "usage: clara setup <LANGUAGE>"
+    echo "usage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPO]"
 fi
 
 option=$1
@@ -19,6 +19,10 @@ if [ "$option" = "scaffold" ]; then
 elif [ "$option" = "setup" ]; then
     language=$2
     if [ "$language" = "python" ]; then
+        REPO=$3
+        if [-n REPO]; then
+            python -c "from clara_bootstrap.installer.PythonInstaller import install; install(\"REPO\")"
+        fi
         python -c "from clara_bootstrap.installer.PythonInstaller import install; install()"
     else
         echo "Not supported language for bootstrap setup..."

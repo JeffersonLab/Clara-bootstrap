@@ -32,7 +32,7 @@ def install(repo=GITHUB_REPO):
         log_file.close()
         print _error_message(log_file.name)
         return -1
-
+    cur_dir = os.getcwd()
     os.chdir(temp_dir)
 
     try:
@@ -53,4 +53,9 @@ def install(repo=GITHUB_REPO):
         return -1
 
     print "[python] Clara has been sucessfully installed in yout system..."
+
+    # cleaning up
     shutil.rmtree(temp_dir)
+    os.chdir(cur_dir)
+    if os.path.isfile(log_file.name):
+        os.remove(log_file.name)

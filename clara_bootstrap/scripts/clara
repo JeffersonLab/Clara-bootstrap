@@ -3,15 +3,17 @@
 function print_help(){
     echo "Clara Bootstrap v1.0"
     echo -e "\tusage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
-    echo -e "\tusage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPO]"
+    echo -e "\tusage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPOSITORY] [CUSTOM_CLARA_INSTALL_DIRECTORY]"
 }
 
 if [ -z "$1" ]; then
     print_help
+    exit 0
 fi
 
 if [ "$1" = "-h" -o "$1" = "-help" ]; then
     print_help
+    exit 0
 fi
 
 option=$1
@@ -29,11 +31,19 @@ if [ "$option" = "scaffold" ]; then
 elif [ "$option" = "setup" ]; then
     language=$2
     if [ "$language" = "python" ]; then
-        REPO=$3
-        if [-n REPO]; then
-            python -c "from clara_bootstrap.installer.PythonInstaller import install; install(\"REPO\")"
+        repo=$3
+        install_dir=$4
+        if [[ -n $repo ]]; then
+            if [ -n install_dir ]; then
+                python -c "from clara_bootstrap.installer.PythonInstaller import install; install(\"$repo\", \"$install_dir\")"
+            else
+                python -c "from clara_bootstrap.installer.PythonInstaller import install; install(\"$repo\")"
+            fi
+        else
+            echo "No argumentss...."
+            python -c "from clara_bootstrap.installer.PythonInstaller import install; install()"
         fi
-        python -c "from clara_bootstrap.installer.PythonInstaller import install; install()"
+
     else
         echo "Not supported language for bootstrap setup..."
     fi

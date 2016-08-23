@@ -17,14 +17,16 @@ def _error_message(filename):
            "Check the log at: " + filename
 
 
-def install(repo=GITHUB_REPO):
-    temp_dir = tempfile.gettempdir() + "/clara"
+def install(repo=GITHUB_REPO, install_dir=None):
+    preserve_install = True if install_dir else False
+    install_dir = install_dir or tempfile.gettempdir()
     log_file = open(create_log_filename("python_install"), "a")
 
     try:
-        Repo.clone_from(repo, temp_dir)
+        install_dir = os.path.join(install_dir, "clara-python")
+        Repo.clone_from(repo, install_dir)
 
-        if not os.path.isdir(temp_dir):
+        if not os.path.isdir(install_dir):
             raise Exception("Could not create file...")
 
     except Exception as e:
@@ -33,12 +35,12 @@ def install(repo=GITHUB_REPO):
         print _error_message(log_file.name)
         return -1
     cur_dir = os.getcwd()
-    os.chdir(temp_dir)
+    os.chdir(install_dir)
 
     try:
         print "[git_repo] cloning the latest version from github"
         subprocess.call(["pip", "install", "-r",
-                         temp_dir + "/requirements.txt"],
+                         install_dir + "/requirements.txt"],
                         stdout=log_file,
                         stderr=log_file)
         print "[python] Running ./setup.py install"
@@ -55,7 +57,8 @@ def install(repo=GITHUB_REPO):
     print "[python] Clara has been sucessfully installed in yout system..."
 
     # cleaning up
-    shutil.rmtree(temp_dir)
+    if not preserve_install:
+        shutil.rmtree(install_dir)
     os.chdir(cur_dir)
     if os.path.isfile(log_file.name):
         os.remove(log_file.name)

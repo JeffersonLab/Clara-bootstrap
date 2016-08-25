@@ -2,8 +2,8 @@
 
 function print_help(){
     echo "Clara Bootstrap v1.0"
-    echo -e "\tusage: clara scaffold <LANGUAGE> <PROJECT_NAME>"
-    echo -e "\tusage: clara setup <LANGUAGE> [CUSTOM_CLARA_REPOSITORY] [CUSTOM_CLARA_INSTALL_DIRECTORY]"
+    echo -e "\tusage: clara scaffold <java|python> <PROJECT_NAME>"
+    echo -e "\tusage: clara install <python> [CUSTOM_CLARA_REPOSITORY] [CUSTOM_CLARA_INSTALL_DIRECTORY]"
 }
 
 if [ -z "$1" ]; then
@@ -28,7 +28,7 @@ if [ "$option" = "scaffold" ]; then
     else
         print_help
     fi
-elif [ "$option" = "setup" ]; then
+elif [ "$option" = "install" ]; then
     language=$2
     if [ "$language" = "python" ]; then
         repo=$3

@@ -30,31 +30,10 @@ run in the command line is **clara**, following the form:
 $ clara <bootstrap-option> [<OPTIONAL ARGUMENTS>]
 ```
 
-### Clara project scaffolding
-
-To create the CLARA Service skeleton in Python simply run in the command line, the following command,
-replace the **PROJECT_NAME** with your desired name for the project.
-
-```sh
-$ clara scaffold python PROJECT_NAME
-```
-
-in the JAVA case run:
-
-```sh
-$ clara scaffold java PROJECT_NAME
-```
-
-### Clara install
-
-To install clara and all of its dependencies using clara_bootstrap, simply run:
-
-```sh
-$ clara setup python
-```
-
-this will take care of downloading the latest stable version of clara python into
-your system.
+| Command  | Arguments             | Description                                                                                                                                                                                                  |
+|----------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| scaffold | LANGUAGE PROJECT_NAME | creates the CLARA Service skeleton in Python simply run in the command  line, the following command,replace the **PROJECT_NAME** with your desired name for the project. Supports Java and Python languages. |
+|  install | LANGUAGE              |  installs clara and all of its dependencies, Supports python                                                                                                                                                 |                         |                                                                                                                                                                         |
 
 
 ## How to Contribute

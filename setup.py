@@ -47,6 +47,7 @@ if __name__ == "__main__":
           description='Clara bootstrap scripts',
           author='Ricardo Oyarzun',
           author_email='oyarzun@jlab.org',
+          include_package_data=True,
           url='https://claraweb.jlab.org',
           license=LICENSE,
           long_description=README,

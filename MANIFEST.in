@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include clara_bootstrap/res/files/java/quality_code/config/quality/*
+include clara_bootstrap/res/templates/services/*.txt
+include clara_bootstrap/res/templates/setup/*.txt
